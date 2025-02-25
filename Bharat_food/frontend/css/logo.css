@@ -1,0 +1,7 @@
+.logo img {
+    width: 80px;       /* Adjust the size as needed */
+    height: 80px;      /* Ensure the height is the same as width for a circle */
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover;  /* Ensures the image covers the area without distortion */
+  }
+  
