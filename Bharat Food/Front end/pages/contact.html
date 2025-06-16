@@ -1,112 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us - Bharat Food</title>
-    <!-- Link to your CSS file -->
-    <link rel="stylesheet" href="../css/styles.css" />
-  </head>
-  <body>
-    <!-- ========== Header & Navigation ========== -->
-    <header class="header">
-      <nav class="navbar">
-        <div class="row d-flex container">
-          <a href="../index.html" class="logo d-flex">
-            <img src="../images/BHARAT_FOOD LOGO.png" alt="Bharat Food Logo" />
-          </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore Foods - Bharat Food</title>
+  <!-- Link to your main CSS file -->
+  <!-- Adjust the path as per your folder structure -->
+  <link rel="stylesheet" href="../css/styles.css" />
+  <!-- Boxicons CDN (for <i class="bx ..."> icons used in header/footer) -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <!-- If you need other icon libraries (font-awesome etc.), include here -->
+</head>
+<style>
+/* ---------- Contact Section ---------- */
+.contact {
+  padding: 8rem 0; /* adjust as needed */
+}
+.contact h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.contact p {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 1.6rem;
+  color: var(--default-color);
+}
 
-          <ul class="nav-list d-flex">
-            <a href="../index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="recipes.html">Recipes</a>
-            <a href="contact.html" class="active">Contact</a>
-            <span class="close d-flex"><i class="bx bx-x"></i></span>
-          </ul>
+/* Form wrapper */
+.contact-form {
+  max-width: 70rem;
+  margin: 0 auto;
+}
 
-          <div class="col d-flex">
-            <form>
-              <input type="search" placeholder="Search your item" />
-              <button class="d-flex"><i class="bx bx-search"></i></button>
-            </form>
-            <div class="cart-icon d-flex">
+/* Grid layout for inputs */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 2rem 3rem; /* row-gap, column-gap */
+}
+
+/* Make full-width items span two columns (if grid has two columns). 
+   On narrower screens, this naturally stacks. */
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Individual form-group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+.form-group label {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: var(--black-color);
+}
+.form-group input,
+.form-group textarea {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border: 1px solid var(--grey-color);
+  border-radius: 0.5rem;
+  background-color: var(--white-color);
+  transition: border-color 0.3s ease;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Button container */
+.form-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+.form-actions .btn {
+  padding: 1rem 3rem;
+  font-size: 1.6rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 800px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+</style>
+<body>
+  <!--=============== Header ===============-->
+  <header class="header">
+    <nav class="navbar">
+      <div class="row d-flex container">
+        <a href="../index.html" class="logo d-flex">
+          <img src="../images/BHARAT_FOOD LOGO.png" alt="Bharat Food Logo" />
+        </a>
+
+        <ul class="nav-list d-flex">
+          <a href="../index.html">Home</a>
+          <a href="../pages/about.html">About</a>
+          <!-- Mark "Food" (Explore) as active -->
+          <a href="./explore_food.html" class="active">Food</a>
+          <a href="../pages/recepies.html">Recipes</a>
+          <a href="../pages/contact.html">Contact</a>
+          <span class="close d-flex"><i class="bx bx-x"></i></span>
+        </ul>
+
+        <div class="col d-flex">
+          <form action="#" method="GET">
+            <input type="search" placeholder="Search your item" name="q" />
+            <button type="submit" class="d-flex"><i class="bx bx-search"></i></button>
+          </form>
+          <div class="cart-icon d-flex">
+            <a href="../Front end/pages/cart.html">
               <i class="bx bx-shopping-bag"></i>
               <span>0</span>
-            </div>
-            <a class="btn signin">Sign In</a>
+            </a>
           </div>
+          <a href="../Front end/pages/signin.html" class="btn signin">Sign In</a>
         </div>
-      </nav>
-    </header>
 
+        <!-- Hamburger -->
+        <div class="hamburger d-flex">
+          <i class="bx bx-menu"></i>
+        </div>
+      </div>
+    </nav>
+  </header>
     <!-- ========== Contact Section ========== -->
-    <section class="contact">
-      <div class="container">
-        <h2>Contact Us</h2>
-        <p>If you have any questions or feedback, feel free to drop us a message!</p>
-        <div class="contact-form">
-          <form action="#" method="post">
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="Enter your name" required />
-            </div>
-            <div class="form-group">
-              <label for="email">Your Email</label>
-              <input type="email" id="email" name="email" placeholder="Enter your email" required />
-            </div>
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" name="subject" placeholder="Enter subject" />
-            </div>
-            <div class="form-group">
-              <label for="message">Your Message</label>
-              <textarea id="message" name="message" rows="6" placeholder="Write your message here" required></textarea>
-            </div>
-            <button type="submit" class="btn">Send Message</button>
-          </form>
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or feedback, feel free to drop us a message!</p>
+    <div class="contact-form">
+      <form id="contactForm">
+        <div class="form-grid">
+          <!-- Name -->
+          <div class="form-group">
+            <label for="name">Your Name <span aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required />
+          </div>
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Your Email <span aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required />
+          </div>
+          <!-- Subject -->
+          <div class="form-group full-width">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Enter subject" />
+          </div>
+          <!-- Message -->
+          <div class="form-group full-width">
+            <label for="message">Your Message <span aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" rows="6" placeholder="Write your message here" required></textarea>
+          </div>
         </div>
-      </div>
-    </section>
+        <div class="form-actions">
+          <button type="submit" class="btn">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
 
-    <!-- ========== Footer ========== -->
+
+    <!--=============== Footer ===============-->
     <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <!-- Footer Column 1 -->
-          <div class="col">
-            <div class="logo">
-              <img src="../images/BHARAT_FOOD LOGO.png" alt="Bharat Food Logo" />
-            </div>
-            <p>Experience the authentic flavors of India with Bharat Food.</p>
-            <div class="icons">
-              <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="icon"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
-            </div>
+      <div class="row container">
+        <div class="col">
+          <div class="logo d-flex">
+            <img src="../images/BHARAT_FOOD LOGO.png" alt="logo" />
           </div>
-          <!-- Footer Column 2 -->
-          <div class="col">
-            <div>
-              <h4>Quick Links</h4>
-              <a href="../index.html">Home</a>
-              <a href="about.html">About</a>
-              <a href="recipes.html">Recipes</a>
-              <a href="contact.html">Contact</a>
+          <p>
+            Retail food delivery is a courier service in which a restaurant,
+            store, or independent food-delivery
+          </p>
+          <div class="icons d-flex">
+            <div class="icon d-flex">
+              <i class="bx bxl-facebook"></i>
             </div>
+            <div class="icon d-flex"><i class="bx bxl-twitter"></i></div>
+            <div class="icon d-flex"><i class="bx bxl-linkedin"></i></div>
           </div>
         </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="container">
-          <div class="row">
-            <p>&copy; 2025 Bharat Food. All rights reserved.</p>
-            <p>Designed by the Bharat Food Team</p>
+        <div class="col">
+          <div>
+            <h4>Company</h4>
+            <a href="../pages/about.html">About Us</a>
+            <a href="">Blog</a>
+            <a href="">All Products</a>
+            <a href="">Locations Map</a>
+          </div>
+          <div>
+            <h4>Services</h4>
+            <a href="">Order tracking</a>
+            <a href="">Wish List</a>
+            <a href="">My account</a>
+            <a href="">Terms & Conditions</a>
+          </div>
+          <div>
+            <h4>Support</h4>
+            <a href="">FAQ</a>
+            <a href="">Policy </a>
+            <a href="">Business</a>
+            <a href="">Support Carrer</a>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <a href="">WhatsApp</a>
+            <a href="">Support 24 </a>
+            <a href="">Quick Chat</a>
           </div>
         </div>
       </div>
     </footer>
+    <div class="footer-bottom">
+      <div class="row container d-flex">
+        <p>Copyright © 2025 Bharat Food</p>
+        <p>""</p>
+      </div>
+    </div>
 
     <!-- Optional: Font Awesome for social icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contactForm');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault(); // stop normal submission
+
+    // Gather form values
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subjectInput = document.getElementById('subject').value.trim();
+    const messageInput = document.getElementById('message').value.trim();
+
+    // Basic validation: required fields
+    if (!name || !email || !messageInput) {
+      alert('Please fill in Name, Email, and Message.');
+      return;
+    }
+
+    // Build an email subject; fallback if empty
+    const subject = subjectInput || 'New Contact Form Message';
+
+    // Build the email body. Include name and sender email in the body.
+    // Use newline characters; encodeURIComponent will handle them.
+    let bodyText = '';
+    bodyText += `Name: ${name}\n`;
+    bodyText += `Email: ${email}\n\n`;
+    bodyText += `Message:\n${messageInput}`;
+
+    // Encode subject and body
+    const encodedSubject = encodeURIComponent(subject);
+    const encodedBody = encodeURIComponent(bodyText);
+
+    // Gmail compose URL:
+    // view=cm : compose mode
+    // fs=1 : fullscreen compose
+    // to=... : recipient
+    // su=... : subject
+    // body=... : body
+    const gmailUrl = 
+      `https://mail.google.com/mail/?view=cm&fs=1&to=bbhtechnicals@gmail.com&su=${encodedSubject}&body=${encodedBody}`;
+
+    // Open Gmail compose in new tab/window
+    window.open(gmailUrl, '_blank');
+
+    // Optionally, you can reset the form if desired:
+    // form.reset();
+  });
+});
+</script>
+
   </body>
 </html>
